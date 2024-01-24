@@ -10,10 +10,11 @@ jobs:
 
   analyze:
     name: Analyze
-    strategy: 
+    ...
+    strategy:
       fail-fast: false
       matrix:
-        language: ['javascript-typescript', 'python']
+        language: ['cpp', 'csharp', 'python']
 
     permissions:
       # required for all workflows
