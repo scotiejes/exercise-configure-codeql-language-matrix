@@ -8,6 +8,14 @@ jobs:
   CodeQL-Build:
     runs-on: ubuntu-latest
 
+  analyze:
+    name: Analyze
+    ...
+    strategy: 
+      fail-fast: false
+      matrix:
+        language: ['javascript-typescript', 'python']
+
     permissions:
       # required for all workflows
       security-events: write
@@ -20,8 +28,6 @@ jobs:
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
-        with:
-          languages: javascript-typescript
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v1
